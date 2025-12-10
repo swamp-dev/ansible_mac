@@ -44,10 +44,4 @@
     - install
     - neovim
 
-- name: Install luarocks - Mac
-  community.general.homebrew:
-    name: luarocks
-    state: present
-  tags:
-    - mac-setup
-    - neovim
+# luarocks is now installed via Brewfile (tasks/brew-bundle.yml)

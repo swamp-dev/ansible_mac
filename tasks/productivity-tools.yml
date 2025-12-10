@@ -1,31 +1,5 @@
-
-- name: Install wireshark - Mac
-  community.general.homebrew:
-    name: wireshark
-    state: present
-  tags:
-    - mac-setup
-    - productivity
-
-- name: Install libreoffice - Mac
-  ansible.builtin.command: 'brew install --cask libreoffice'
-  tags:
-    - mac-setup
-    - productivity
-
-- name: Install flameshot - Mac
-  ansible.builtin.command: 'brew install --cask flameshot'
-  tags:
-    - mac-setup
-    - productivity
-
-- name: Install xclip - Mac
-  community.general.homebrew:
-    name: xclip
-    state: present
-  tags:
-    - mac-setup
-    - productivity
+# Productivity Tools - Brew packages are now installed via Brewfile (tasks/brew-bundle.yml)
+# wireshark, libreoffice, flameshot, and xclip are in Brewfile
 
 - name: Install sdkman
   ansible.builtin.command: 'curl -s "https://get.sdkman.io" | bash'

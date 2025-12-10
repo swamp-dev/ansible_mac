@@ -1,11 +1,4 @@
-
-- name: Install tmux
-  community.general.homebrew:
-    name: tmux
-    state: present
-  tags:
-    - mac-setup
-    - tmux
+# Tmux Setup - tmux is now installed via Brewfile (tasks/brew-bundle.yml)
 
 - name: create tpm plugins folder if it doesn't exist
   file:

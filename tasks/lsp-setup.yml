@@ -10,33 +10,8 @@
     - install
     - lsp
 
-# "Lua"
-- name: Lua LSP
-  community.general.homebrew:
-    name: lua-language-server
-    state: present
-  tags:
-    - wsl
-    - install
-    - lsp
-
-- name: Lua jit
-  community.general.homebrew:
-    name: luajit
-    state: present
-  tags:
-    - wsl
-    - install
-    - lsp
-
-- name: Lua rocks
-  community.general.homebrew:
-    name: luarocks
-    state: present
-  tags:
-    - wsl
-    - install
-    - lsp
+# LSP Setup - Lua packages are now installed via Brewfile (tasks/brew-bundle.yml)
+# "Lua" - lua-language-server, luajit, and luarocks are in Brewfile
 
 # https://github.com/hrsh7th/vscode-langservers-extracted
 - name: Install vscode langservers (jsonls, html,  eslint  server)

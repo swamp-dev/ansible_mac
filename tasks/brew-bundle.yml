@@ -7,7 +7,12 @@
     - mac-setup
 
 - name: Install packages from Brewfile
-  ansible.builtin.command: brew bundle install --file={{ playbook_dir }}/Brewfile
+  ansible.builtin.shell: |
+    brew bundle install --file={{ playbook_dir }}/Brewfile
+  args:
+    chdir: "{{ playbook_dir }}"
+    executable: /bin/zsh
+    pty: yes
   when:
     - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists

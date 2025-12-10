@@ -1,10 +1,5 @@
-
-- name: Install nodejs and npm - macOS
-  ansible.builtin.homebrew:
-    name: 'node'
-    state: present
-  tags:
-    - node
+# Node Setup - Configuration tasks only
+# Node is now installed via Brewfile (tasks/brew-bundle.yml)
 
 - name: Create npmjs prefix folder if it doesn't exist
   ansible.builtin.file:

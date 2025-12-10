@@ -1,5 +1,0 @@
-- name: Install Zoom - Mac
-  ansible.builtin.command: 'brew install --cask zoom'
-  tags:
-    - mac-setup
-    - zoom

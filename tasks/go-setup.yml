@@ -1,9 +1,0 @@
-- name: Install go
-  community.general.homebrew:
-    name: go
-    state: present
-  tags:
-    - wsl
-    - go
-    - mac-setup
-  when: ansible_distribution == 'MacOSX'
