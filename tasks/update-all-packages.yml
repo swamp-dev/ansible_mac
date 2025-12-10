@@ -4,7 +4,6 @@
     upgrade_all: true
   tags:
     - update
-  when: ansible_distribution == 'MacOSX'
 
 - name: Upgrade all Cargo Packages
   ansible.builtin.command: cargo install-update --all

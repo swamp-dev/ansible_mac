@@ -3,7 +3,6 @@
     path: '{{ home }}/neovim/'
     state: absent
   tags:
-    - wsl
     - install
     - neovim
 
@@ -12,7 +11,6 @@
     repo: 'https://github.com/wbthomason/packer.nvim'
     dest: '{{ home }}/.local/share/nvim/site/pack/packer/start/packer.nvim'
   tags:
-    - wsl
     - install
     - neovim
 
@@ -21,7 +19,6 @@
     repo: 'https://github.com/neovim/neovim.git'
     dest: '{{ home }}/neovim'
   tags:
-    - wsl
     - install
     - neovim
 
@@ -30,7 +27,6 @@
   args:
     chdir: '{{ home }}/neovim'
   tags:
-    - wsl
     - install
     - neovim
 
@@ -40,7 +36,6 @@
   args:
     chdir: '{{ home }}/neovim'
   tags:
-    - wsl
     - install
     - neovim
 

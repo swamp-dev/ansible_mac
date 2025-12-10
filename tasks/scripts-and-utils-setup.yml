@@ -5,7 +5,6 @@
     mode: 0755
     owner: '{{ user }}'
   tags:
-    - wsl
     - install
     - scripts-setup
 
@@ -15,7 +14,6 @@
     repo: 'https://github.com/adelgado0723/scripts_mac.git'
     dest: '{{ home }}/scripts/'
   tags:
-    - wsl
     - install
     - scripts-setup
 
@@ -25,7 +23,6 @@
   args:
     chdir: '{{ home }}/scripts/'
   tags:
-    - wsl
     - install
     - scripts-setup
 
@@ -36,7 +33,6 @@
     mode: 0755
     owner: '{{ user }}'
   tags:
-    - wsl
     - install
     - scripts-setup
 
@@ -46,7 +42,6 @@
 #     repo: 'https://github.com/adelgado0723/wallpapers.git'
 #     dest: '{{ home }}/wallpapers/wallpapers_public'
 #   tags:
-#     - wsl
 #     - install
 #     - scripts-setup
 
@@ -56,6 +51,5 @@
     repo: 'https://gitlab.com/dwt1/wallpapers.git'
     dest: '{{ home }}/wallpapers/dt_wallpapers'
   tags:
-    - wsl
     - install
     - scripts-setup

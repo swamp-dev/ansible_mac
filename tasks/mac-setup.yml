@@ -11,7 +11,6 @@
 - name: Install python version
   ansible.builtin.shell: 'pyenv install {{ python_version }}'
   when:
-    - ansible_distribution == 'MacOSX'
     - not python_version_exists.stat.exists
   tags:
     - mac-setup

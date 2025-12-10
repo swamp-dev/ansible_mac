@@ -14,7 +14,6 @@
     executable: /bin/zsh
     pty: yes
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
   tags:
     - brew
@@ -30,7 +29,6 @@
 - name: Start skhd service
   ansible.builtin.command: skhd --start-service
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
   tags:
     - brew
@@ -40,7 +38,6 @@
 - name: Start sketchybar service
   ansible.builtin.command: brew services start sketchybar
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
   tags:
     - brew
@@ -50,7 +47,6 @@
 - name: Start yabai service
   ansible.builtin.command: yabai --start-service
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
   tags:
     - brew
@@ -64,7 +60,6 @@
     path: /opt/homebrew/opt/openjdk@11
   register: java11_installed
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
   tags:
     - brew
@@ -78,7 +73,6 @@
     state: link
     force: yes
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - java11_installed.stat.exists
   tags:
@@ -89,7 +83,6 @@
   ansible.builtin.shell: grep -q 'openjdk@11/bin' {{ home }}/.zshrc || echo "not found"
   register: java_path_check
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - java11_installed.stat.exists
   tags:
@@ -104,7 +97,6 @@
     line: 'export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"'
     create: yes
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - java11_installed.stat.exists
     - "'not found' in java_path_check.stdout"
@@ -116,7 +108,6 @@
   ansible.builtin.shell: grep -q 'openjdk@11/include' {{ home }}/.zshrc || echo "not found"
   register: java_cppflags_check
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - java11_installed.stat.exists
   tags:
@@ -131,7 +122,6 @@
     line: 'export CPPFLAGS="-I/opt/homebrew/opt/openjdk@11/include"'
     create: yes
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - java11_installed.stat.exists
     - "'not found' in java_cppflags_check.stdout"
@@ -144,7 +134,6 @@
     path: "{{ home }}/.pyenv"
   register: pyenv_installed
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
   tags:
     - brew
@@ -154,7 +143,6 @@
   ansible.builtin.shell: grep -q 'PYENV_ROOT' {{ home }}/.zshrc || echo "not found"
   register: pyenv_root_check
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - pyenv_installed.stat.exists
   tags:
@@ -169,7 +157,6 @@
     line: 'export PYENV_ROOT="$HOME/.pyenv"'
     create: yes
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - pyenv_installed.stat.exists
     - "'not found' in pyenv_root_check.stdout"
@@ -181,7 +168,6 @@
   ansible.builtin.shell: grep -q 'PYENV_ROOT/bin' {{ home }}/.zshrc || echo "not found"
   register: pyenv_path_check
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - pyenv_installed.stat.exists
   tags:
@@ -196,7 +182,6 @@
     line: 'export PATH="$PYENV_ROOT/bin:$PATH"'
     create: yes
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - pyenv_installed.stat.exists
     - "'not found' in pyenv_path_check.stdout"
@@ -208,7 +193,6 @@
   ansible.builtin.shell: grep -q 'pyenv init' {{ home }}/.zshrc || echo "not found"
   register: pyenv_init_check
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - pyenv_installed.stat.exists
   tags:
@@ -228,7 +212,6 @@
       fi
     create: yes
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - pyenv_installed.stat.exists
     - "'not found' in pyenv_init_check.stdout"
@@ -240,7 +223,6 @@
   ansible.builtin.command: which yabai
   register: yabai_path
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
   tags:
     - brew
@@ -252,7 +234,6 @@
   ansible.builtin.shell: shasum -a 256 {{ yabai_path.stdout }} | awk '{print $1}'
   register: yabai_hash
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - yabai_path.rc == 0
   tags:
@@ -266,7 +247,6 @@
     path: /private/etc/sudoers.d/yabai
   register: yabai_sudoers_exists
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - yabai_path.rc == 0
     - yabai_hash.rc == 0
@@ -282,7 +262,6 @@
     mode: '0440'
     validate: 'visudo -cf %s'
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - yabai_path.rc == 0
     - yabai_hash.rc == 0
@@ -296,7 +275,6 @@
     path: /Applications/Docker.app
   register: docker_installed
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
   tags:
     - brew
@@ -307,7 +285,6 @@
   ansible.builtin.shell: groups {{ user }} | grep -q docker && echo "yes" || echo "no"
   register: user_in_docker_group
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - docker_installed.stat.exists
   tags:
@@ -324,7 +301,6 @@
     append: yes
     groups: docker
   when:
-    - ansible_distribution == 'MacOSX'
     - brewfile_exists.stat.exists
     - docker_installed.stat.exists
     - "'no' in user_in_docker_group.stdout"

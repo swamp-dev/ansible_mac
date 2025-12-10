@@ -1,7 +1,6 @@
 - name: Install lazygit
   ansible.builtin.command: '{{ go_bin_path }}/go install github.com/jesseduffield/lazygit@latest'
   tags:
-    - wsl
     - install
     - core
     - go-packages
@@ -9,7 +8,6 @@
 - name: Install gum
   ansible.builtin.command: '{{ go_bin_path }}/go install github.com/charmbracelet/gum@latest'
   tags:
-    - wsl
     - install
     - core
     - go-packages
@@ -17,7 +15,6 @@
 - name: Install go-global-update
   ansible.builtin.command: '{{ go_bin_path }}/go install github.com/Gelio/go-global-update@latest'
   tags:
-    - wsl
     - install
     - core
     - go-packages

@@ -6,7 +6,6 @@
     - install
     - dotfiles
     - stow
-    - wsl
 
 - name: Cloning dotfiles
   ansible.builtin.git:
@@ -17,7 +16,6 @@
     - install
     - dotfiles
     - stow
-    - wsl
   when: not dotfiles.stat.exists
 
 - name: Stow dotfiles
@@ -28,4 +26,3 @@
     - install
     - dotfiles
     - stow
-    - wsl

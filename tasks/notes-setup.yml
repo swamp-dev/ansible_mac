@@ -5,5 +5,4 @@
     mode: 0755
     owner: '{{ user }}'
   tags:
-    - wsl
     - notes
