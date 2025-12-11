@@ -2,9 +2,7 @@
 # Generated from Ansible playbook analysis
 
 # Taps
-tap "homebrew/cask-fonts"
 tap "mongodb/brew"
-tap "homebrew/cask-versions"
 tap "koekeishiya/formulae"
 tap "FelixKratz/formulae"
 
@@ -66,7 +64,7 @@ cask "font-fira-code-nerd-font"
 cask "font-terminess-ttf-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-inconsolata-go-nerd-font"
-cask "font-source-code-pro-nerd-font"
+cask "font-sauce-code-pro-nerd-font"
 cask "font-space-mono-nerd-font"
 cask "font-noto-color-emoji"
 
