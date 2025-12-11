@@ -12,7 +12,6 @@
   args:
     chdir: "{{ playbook_dir }}"
     executable: /bin/zsh
-    pty: yes
   when:
     - brewfile_exists.stat.exists
   tags:
