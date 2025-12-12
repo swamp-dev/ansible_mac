@@ -36,4 +36,5 @@
     - import_tasks: tasks/productivity-tools.yml
     - import_tasks: tasks/scripts-and-utils-setup.yml
     - import_tasks: tasks/tmux-setup.yml
+    - import_tasks: tasks/services.yml
     # - import_tasks: tasks/update-all-packages.yml # Commented out as it should be run separately after initial setup
