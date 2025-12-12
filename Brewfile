@@ -47,6 +47,7 @@ brew "koekeishiya/formulae/yabai"
 brew "mongodb/brew/mongodb-database-tools"
 
 # Casks (GUI Applications)
+cask "1password"
 cask "beekeeper-studio"
 cask "slack"
 cask "google-chrome"
